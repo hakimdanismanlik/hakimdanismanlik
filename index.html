@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rvzqEt6hSlHolYHG9mmewJN5IKpFriLti4HH3S8bSzg" />
+<title>Hakim Danışmanlık | Anasayfa</title>
+<style>
+ /* Genel sıfırlama ve temel stiller */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7fa;
+    color: #2c3e50;
+  }
+  header {
+    background: #0a3d62;
+    padding: 20px 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 28px;
+    color: #f5f6fa;
+    letter-spacing: 3px;
+    user-select: none;
+  }
+  nav {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background: #1e3799;
+    padding: 12px 0;
+  }
+  nav a {
+    color: #dcdde1;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+  nav a:hover,
+  nav a.active {
+    background: #f39c12;
+    color: #fff;
+  }
+
+/* Header */
+header {
+  position: fixed; top:0; left:0; width:100%;
+  background: rgba(255,255,255,0.95);
+  color:#0a3d62;
+  padding:15px 0; text-align:center;
+  font-size:26px; font-weight:bold; z-index:1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+nav {
+  margin-top:10px; display:flex;
+  justify-content:center; gap:20px;
+}
+nav a { color:#0a3d62; padding:6px 10px; border-radius:4px; font-weight:600; transition: background 0.3s, color 0.3s; }
+nav a:hover, nav a.active { background:#f39c12; color:#fff; }
+
+/* Slider */
+.slider-container { margin-top:100px; position: relative; max-height:500px; overflow:hidden; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);}
+.slide { display:none; position: relative; height:500px; }
+.slide img { width:100%; height:500px; object-fit: cover; filter: brightness(85%); border-radius: 10px; }
+.slide-content { position: absolute; bottom: 40px; left: 40px; color: #fff; background: rgba(0,0,0,0.25); padding:15px 25px; border-radius: 6px; opacity:0; transform: translateY(20px); animation: fadeInUp 1s forwards;}
+.slide-content h2 { margin:0 0 8px; font-size:26px; font-weight:600; }
+.slide-content p { margin:0; font-size:15px; }
+.cta-btn { display:inline-block; margin-top:12px; background:#f39c12; color:#fff; padding:10px 20px; border-radius:6px; font-weight:600; transition: transform 0.3s, background 0.3s;}
+.cta-btn:hover { background:#e67e22; transform: translateY(-2px); }
+@keyframes fadeInUp { to { opacity:1; transform: translateY(0); } }
+.prev, .next { cursor:pointer; position:absolute; top:50%; transform: translateY(-50%); background: rgba(0,0,0,0.25); color:#fff; padding:10px; border-radius:50%; font-size:18px; user-select:none;}
+.prev { left:10px; } .next { right:10px; }
+.prev:hover, .next:hover { background: rgba(0,0,0,0.5); }
+.dots { text-align:center; position:absolute; bottom:10px; width:100%; }
+.dot { display:inline-block; width:10px; height:10px; background:#bbb; border-radius:50%; margin:0 4px; cursor:pointer; transition: background 0.3s; }
+.dot.active { background:#f39c12; }
+
+/* Özellikler Bölümü */
+.features { padding:60px 20px; background:#fcf8f0; text-align:center; }
+.features h2 { font-size:32px; color:#0a3d62; margin-bottom:40px; }
+.features-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:1200px; margin:0 auto; }
+.feature-box { flex:1 1 250px; background:#fff; padding:30px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.08); transition:transform 0.3s; text-align:center; }
+.feature-box img { margin-bottom:15px; }
+.feature-box h3 { color:#0a3d62; margin-bottom:10px; }
+.feature-box p { font-size:14px; line-height:1.5; }
+.feature-box:hover { transform: translateY(-5px); box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+
+/* CTA Alt Bölüm */
+.cta-section { padding:50px 20px; background:#0a3d62; color:#fff; text-align:center; border-radius:10px; margin:40px 20px; }
+.cta-section h2 { font-size:28px; margin-bottom:20px; }
+.cta-section p { font-size:16px; margin-bottom:25px; }
+.cta-section a { background:#f39c12; color:#fff; padding:12px 25px; border-radius:6px; font-weight:600; transition: all 0.3s; }
+.cta-section a:hover { background:#e67e22; transform: translateY(-2px); }
+
+/* Footer */
+footer { background:#fcf8f0; color:#0a3d62; padding:40px 20px; text-align:center; margin-top:40px; border-top:1px solid #e0dcd3; }
+footer .footer-container { max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; text-align:left; }
+footer .footer-container div { flex:1 1 250px; }
+footer .footer-container h3 { margin-bottom:15px; }
+footer .footer-container p, footer .footer-container a { font-size:14px; line-height:1.6; color:#0a3d62; }
+footer .footer-container a:hover { text-decoration:underline; }
+footer .copyright { margin-top:30px; font-size:14px; color:#555; }
+
+@media(max-width:768px) {
+  .slide-content { left:20px; bottom:20px; padding:10px 15px; }
+  .slide-content h2 { font-size:20px; }
+  .slide-content p { font-size:13px; }
+  .cta-btn { padding:8px 15px; font-size:14px; }
+  .slide { height:300px; }
+  .slide img { height:300px; }
+  footer .footer-container { text-align:center; flex-direction:column; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  HAKİM DANIŞMANLIK
+  <nav>
+    <a href="index.html" class="active">ANASAYFA</a>
+    <a href="hakkimizda.html">HAKKIMIZDA</a>
+    <a href="hizmetler.html">HİZMETLER</a>
+    <a href="iletisim.html">İLETİŞİM</a>
+  </nav>
+</header>
+
+<!-- Slider -->
+<div class="slider-container">
+  <div class="slide fade">
+    <img src="fotoğraflar/slider1.png" alt="Danışmanlık 1">
+    <div class="slide-content">
+      <h2>Profesyonel Çözümler</h2>
+      <p>İş süreçlerinizi optimize edecek danışmanlık hizmetleri.</p>
+      <a href="hizmetler.html" class="cta-btn">Hizmetlerimiz</a>
+    </div>
+  </div>
+
+  <div class="slide fade">
+    <img src="fotoğraflar/slider2.jpg" alt="Danışmanlık 2">
+    <div class="slide-content">
+      <h2>Uzman Kadro</h2>
+      <p>Deneyimli danışmanlarımız ile başarıya ulaşın.</p>
+      <a href="hakkimizda.html" class="cta-btn">Hakkımızda</a>
+    </div>
+  </div>
+
+  <div class="slide fade">
+    <img src="fotoğraflar/slider3.png" alt="Danışmanlık 3">
+    <div class="slide-content">
+      <h2>Müşteri Memnuniyeti</h2>
+      <p>Referanslarımızla güvenilir ve güçlü iş ilişkileri.</p>
+      <a href="iletisim.html" class="cta-btn">İletişim</a>
+    </div>
+  </div>
+
+  <span class="prev" onclick="plusSlides(-1)">&#10094;</span>
+  <span class="next" onclick="plusSlides(1)">&#10095;</span>
+
+  <div class="dots">
+    <span class="dot" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+  </div>
+</div>
+
+<!-- Özellikler -->
+<section class="features">
+  <h2>Neden Hakim Danışmanlık?</h2>
+  <div class="features-container">
+    <div class="feature-box">
+      <img src="https://img.icons8.com/ios-filled/64/0a3d62/briefcase.png" alt="Uzman Kadro">
+      <h3>Uzman Kadro</h3>
+      <p>Deneyimli danışmanlarımız ile iş süreçlerinizi daha verimli yönetin.</p>
+    </div>
+    <div class="feature-box">
+      <img src="https://img.icons8.com/ios-filled/80/0a3d62/brainstorm.png" title="professional services icons" alt="Profesyonel Çözümler">
+      <h3>Profesyonel Çözümler</h3>
+      <p>İş süreçlerinizi optimize edecek stratejik danışmanlık hizmetleri sunuyoruz.</p>
+    </div>
+    <div class="feature-box">
+      <img src="https://img.icons8.com/ios-filled/80/0a3d62/happy.png" alt="Müşteri Memnuniyeti">
+      <h3>Müşteri Memnuniyeti</h3>
+      <p>Referanslarımız ile güvenilir ve güçlü iş ilişkileri kuruyoruz.</p>
+    </div>
+    <div class="feature-box">
+      <img src="https://img.icons8.com/ios-filled/80/0a3d62/combo-chart.png" alt="Analiz ve Raporlama">
+      <h3>Analiz & Raporlama</h3>
+      <p>İş süreçlerinizi ölçülebilir ve analiz edilebilir raporlarla güçlendiriyoruz.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Alt Bölüm -->
+<section class="cta-section">
+  <h2>Bizimle Hemen İletişime Geçin!</h2>
+  <p>Danışmanlık hizmetlerimizden faydalanmak için formu doldurun veya bizi arayın.</p>
+  <a href="iletisim.html">İletişim</a>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div>
+      <h3>Hakim Danışmanlık</h3>
+      <p>Profesyonel danışmanlık hizmetleri sunan ekibimizle iş süreçlerinizi optimize ediyoruz.</p>
+    </div>
+    <div>
+      <h3>İletişim</h3>
+      <p>Adres: Hacı Halil Mahallesi, Çeşme Caddesi, Akün İş Merkezi No:35 D:4 Gebze/KOCAELİ</p>
+      <p>Telefon: +90 530 686 41 28</p>
+      <p>Email: hakimdanismanlikk@gmail.com</p>
+    </div>
+    
+  </div>
+  <div class="copyright">
+    &copy; 2026 Hakim Danışmanlık. Tüm hakları saklıdır.
+  </div>
+</footer>
+
+<script>
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(index){
+  if(index >= slides.length) slideIndex=0;
+  else if(index<0) slideIndex=slides.length-1;
+  else slideIndex=index;
+
+  slides.forEach((s,i)=> { 
+    s.style.display=(i===slideIndex)?'block':'none'; 
+    const content = s.querySelector('.slide-content');
+    if(i===slideIndex){
+      content.style.opacity=0;
+      content.style.transform='translateY(20px)';
+      setTimeout(()=>{ content.style.opacity=1; content.style.transform='translateY(0)'; },100);
+    }
+  });
+
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[slideIndex].classList.add('active');
+}
+
+function plusSlides(n){ showSlide(slideIndex+n); }
+function currentSlide(n){ showSlide(n); }
+
+setInterval(()=>{ plusSlides(1); },5000);
+showSlide(slideIndex);
+</script>
+
+</body>
+</html>
